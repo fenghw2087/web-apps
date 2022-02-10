@@ -674,8 +674,8 @@ module.exports = function(grunt) {
 
     doRegisterInitializeAppTask('common',               'Common',               'common.json');
     doRegisterInitializeAppTask('documenteditor',       'DocumentEditor',       'documenteditor.json');
-    doRegisterInitializeAppTask('spreadsheeteditor',    'SpreadsheetEditor',    'spreadsheeteditor.json');
-    doRegisterInitializeAppTask('presentationeditor',   'PresentationEditor',   'presentationeditor.json');
+    // doRegisterInitializeAppTask('spreadsheeteditor',    'SpreadsheetEditor',    'spreadsheeteditor.json');
+    // doRegisterInitializeAppTask('presentationeditor',   'PresentationEditor',   'presentationeditor.json');
 
 
     grunt.registerTask('deploy-app', 'Deploy application.', function(){
@@ -691,17 +691,18 @@ module.exports = function(grunt) {
 
     grunt.registerTask('deploy-common-component',             ['init-build-common', 'deploy-app']);
     grunt.registerTask('deploy-documenteditor-component',     ['init-build-documenteditor', 'deploy-app']);
-    grunt.registerTask('deploy-spreadsheeteditor-component',  ['init-build-spreadsheeteditor', 'deploy-app']);
-    grunt.registerTask('deploy-presentationeditor-component', ['init-build-presentationeditor', 'deploy-app']);
+    // grunt.registerTask('deploy-spreadsheeteditor-component',  ['init-build-spreadsheeteditor', 'deploy-app']);
+    // grunt.registerTask('deploy-presentationeditor-component', ['init-build-presentationeditor', 'deploy-app']);
     // This task is called from the Makefile, don't delete it.
     grunt.registerTask('deploy-documents-component',          ['deploy-common-component']);   
 
     grunt.registerTask('deploy-documenteditor',     ['deploy-common-component', 'deploy-documenteditor-component']);
-    grunt.registerTask('deploy-spreadsheeteditor',  ['deploy-common-component', 'deploy-spreadsheeteditor-component']);
-    grunt.registerTask('deploy-presentationeditor', ['deploy-common-component', 'deploy-presentationeditor-component']);
+    // grunt.registerTask('deploy-spreadsheeteditor',  ['deploy-common-component', 'deploy-spreadsheeteditor-component']);
+    // grunt.registerTask('deploy-presentationeditor', ['deploy-common-component', 'deploy-presentationeditor-component']);
 
     grunt.registerTask('default', ['deploy-common-component',
                                    'deploy-documenteditor-component',
-                                   'deploy-spreadsheeteditor-component',
-                                   'deploy-presentationeditor-component']);
+                                //    'deploy-spreadsheeteditor-component',
+                                //    'deploy-presentationeditor-component'
+                                ]);
 };

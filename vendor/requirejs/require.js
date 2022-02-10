@@ -1883,6 +1883,10 @@ var requirejs, require, define;
                 node.addEventListener('error', context.onScriptError, false);
             }
             node.src = url;
+            var sdkVersion = window['__hy_ai_sdkVersion']
+            if (sdkVersion) {
+                node.src += '?v=' + sdkVersion;
+            }
 
             //For some cache cases in IE 6-8, the script executes before the end
             //of the appendChild execution, so to tie an anonymous define

@@ -11,6 +11,12 @@
     <!-- splash -->
 
     <style type="text/css">
+        .x-lone {
+            display: none !important;
+        }
+        #left-btn-about {
+            display: none;
+        }
         .content-theme-dark {
             --skeleton-canvas-content-background: #3a3a3a;
             --skeleton-canvas-page-border: #2a2a2a;
@@ -242,6 +248,16 @@
             compact = params["compact"] == 'true',
             view = params["mode"] == 'view',
             visible = true;
+
+        if (params.hideLeft) {
+            var ele = document.createElement("style");
+            ele.innerHTML = '#left-menu { display: none; }';
+            document.getElementsByTagName('head')[0].appendChild(ele)
+        }
+
+        if (params.sdkVersion) {
+            window['__hy_ai_sdkVersion'] = params.sdkVersion
+        }
 
         (compact || view || notoolbar) && document.querySelector('.brendpanel > :nth-child(2)').remove();
 

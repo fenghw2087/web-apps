@@ -284,6 +284,8 @@
         _config.frameEditorId = placeholderId;
         _config.parentOrigin = window.location.origin;
 
+        var customConfig = _config.customConfig || {}
+
         var onMouseUp = function (evt) {
             _processMouse(evt);
         };
@@ -477,6 +479,13 @@
 
         if (target && _checkConfigParams()) {
             iframe = createIframe(_config);
+            var frameId = customConfig.frameId
+            if (frameId) {
+                if (!window['frameEditor']) {
+                    window['frameEditor'] = {}
+                }
+                window['frameEditor'][frameId] = iframe
+            }
             if (iframe.src) {
                 var pathArray = iframe.src.split('/');
                 this.frameOrigin = pathArray[0] + '//' + pathArray[2];
@@ -501,6 +510,10 @@
                 _detachMouseEvents();
                 iframe.parentNode && iframe.parentNode.replaceChild(target, iframe);
             }
+            var frameId = customConfig.frameId
+            if (frameId && window['frameEditor']) {
+                delete window['frameEditor'][frameId]
+            }
         };
 
         var _sendCommand = function(cmd) {
@@ -512,7 +525,8 @@
             _sendCommand({
                 command: 'init',
                 data: {
-                    config: editorConfig
+                    config: editorConfig,
+                    customConfig: customConfig
                 }
             });
         };
@@ -942,6 +956,14 @@
         if (config.editorConfig && config.editorConfig.customization && config.editorConfig.customization.uiTheme )
             params += "&uitheme=" + config.editorConfig.customization.uiTheme;
 
+        if (config.editorConfig && config.editorConfig.customization && config.editorConfig.customization.hideLeftMenu) {
+            params += '&hideLeft=1'
+        }
+
+        if (config.customConfig && config.customConfig.sdkVersion) {
+            params += '&sdkVersion=' + config.customConfig.sdkVersion
+        }
+
         return params;
     }
 
@@ -970,6 +992,7 @@
 
     function postMessage(wnd, msg) {
         if (wnd && wnd.postMessage && window.JSON) {
+            msg['frameEditorId'] = window['frameEditorId']
             // TODO: specify explicit origin
             wnd.postMessage(window.JSON.stringify(msg), "*");
         }

@@ -780,6 +780,16 @@ define([
                             if (this.getPopover()) {
                                 this.getPopover().hideComments();
                             }
+                        } else {
+                            if (
+                                this.popoverComments.models.every(function (v) {
+                                    return v.attributes.username === '__hy_ai'
+                                })
+                            ) {
+                                if (this.getPopover()) {
+                                    this.getPopover().hideComments()
+                                }
+                            }
                         }
                     }
                 }

@@ -528,6 +528,7 @@ define([
 
             var me = this;
             this.store.each(function(item){
+                if (item.attributes.username === '__hy_ai') return
                 me.onAddItem(item, me.store);
             }, this);
 

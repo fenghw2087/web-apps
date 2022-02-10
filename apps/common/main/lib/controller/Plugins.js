@@ -113,38 +113,48 @@ define([
         },
 
         loadPlugins: function() {
-            if (this.configPlugins.config) {
-                this.getPlugins(this.configPlugins.config.pluginsData)
-                    .then(function(loaded)
-                    {
-                        me.configPlugins.plugins = loaded;
-                        me.mergePlugins();
-                    })
-                    .catch(function(err)
-                    {
-                        me.configPlugins.plugins = false;
-                    });
-            } else
-                this.configPlugins.plugins = false;
+            var me = this
+					if (this.configPlugins.config) {
+						this.getPlugins(this.configPlugins.config.pluginsData)
+							.then(function (loaded) {
+								me.configPlugins.plugins = loaded
+								me.mergePlugins()
+							})
+							.catch(function (err) {
+								me.configPlugins.plugins = false
+							})
+					} else this.configPlugins.plugins = false
 
-            var server_plugins_url = '../../../../plugins.json',
-                me = this;
-            Common.Utils.loadConfig(server_plugins_url, function (obj) {
-                if ( obj != 'error' ) {
-                    me.serverPlugins.config = obj;
-                    me.getPlugins(me.serverPlugins.config.pluginsData)
-                        .then(function(loaded)
-                        {
-                            me.serverPlugins.plugins = loaded;
-                            me.mergePlugins();
-                        })
-                        .catch(function(err)
-                        {
-                            me.serverPlugins.plugins = false;
-                        });
-                } else
-                    me.serverPlugins.plugins = false;
-            });
+					me.serverPlugins.config = {
+						pluginsData: []
+					}
+					me.getPlugins(me.serverPlugins.config.pluginsData)
+						.then(function (loaded) {
+							me.serverPlugins.plugins = loaded
+							me.mergePlugins()
+						})
+						.catch(function (err) {
+							me.serverPlugins.plugins = false
+						})
+
+					// var server_plugins_url = '../../../../plugins.json',
+					//     me = this;
+					// Common.Utils.loadConfig(server_plugins_url, function (obj) {
+					//     if ( obj != 'error' ) {
+					//         me.serverPlugins.config = obj;
+					//         me.getPlugins(me.serverPlugins.config.pluginsData)
+					//             .then(function(loaded)
+					//             {
+					//                 me.serverPlugins.plugins = loaded;
+					//                 me.mergePlugins();
+					//             })
+					//             .catch(function(err)
+					//             {
+					//                 me.serverPlugins.plugins = false;
+					//             });
+					//     } else
+					//         me.serverPlugins.plugins = false;
+					// });
         },
 
         onAppShowed: function (config) {

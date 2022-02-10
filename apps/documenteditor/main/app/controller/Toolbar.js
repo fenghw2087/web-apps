@@ -2953,6 +2953,24 @@ define([
         },
 
         _onInitEditorStyles: function(styles) {
+            var arr = [
+                'Normal',
+                'No Spacing',
+                'Heading 1',
+                'Heading 2',
+                'Heading 3',
+                'Heading 4',
+                'Heading 5',
+                'Heading 6'
+            ]
+            var mergedStyles = styles.get_MergedStyles()
+            if (mergedStyles.length) {
+                styles.set_MergedStyles(
+                    mergedStyles.filter(function (v) {
+                        return arr.indexOf(v.get_Name()) > -1
+                    })
+                )
+            }
             window.styles_loaded = false;
 
             var self = this,
