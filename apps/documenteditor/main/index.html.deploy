@@ -39,8 +39,8 @@
         .loadmask > .brendpanel {
             width: 100%;
             min-height: 28px;
-            background: #446995;
-            background: var(--toolbar-header-document, #446995);
+            background: #2f54eb;
+            background: var(--toolbar-header-document, #2f54eb);
         }
 
         .loadmask > .brendpanel > div {
