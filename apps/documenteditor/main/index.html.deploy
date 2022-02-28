@@ -299,6 +299,11 @@
             ele.innerHTML = '.loading-logo { display: none; } .extra #header-logo { display: none }';
             document.getElementsByTagName('head')[0].appendChild(ele)
         }
+        if (params.showBack) {
+            var ele = document.createElement("style");
+            ele.innerHTML = '.hy-back { display: block; }';
+            document.getElementsByTagName('head')[0].appendChild(ele)
+        }
 
         if (params.sdkVersion) {
             window['__hy_ai_sdkVersion'] = params.sdkVersion
