@@ -960,6 +960,14 @@
             params += '&hideLeft=1'
         }
 
+        if (config.editorConfig && config.editorConfig.customization && config.editorConfig.customization.hideLogo) {
+            params += '&hideLogo=1'
+        }
+
+        if (config.editorConfig && config.editorConfig.customization && config.editorConfig.customization.showBack) {
+            params += '&showBack=1'
+        }
+
         if (config.customConfig && config.customConfig.sdkVersion) {
             params += '&sdkVersion=' + config.customConfig.sdkVersion
         }

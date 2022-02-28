@@ -164,6 +164,36 @@
             animation: flickerAnimation 2s infinite ease-in-out;
         }
 
+        .hy-back {
+            display: none;
+            height: 100%;
+            width: 70px;
+            padding-top: 2px;
+            line-height: 30px;
+            position: relative;
+            background: var(--toolbar-header-document, #2f54eb);
+            color: #fff;
+            font-size: 12px;
+            padding-left: 10px;
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .hy-back:hover {
+            background-color: #6677f0;
+        }
+        .hy-back::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-left: 1px solid #fff;
+            border-top: 1px solid #fff;
+            transform: rotate(-45deg);
+            position: absolute;
+            left: 18px;
+            top: 13px;
+        }
+
         @keyframes flickerAnimation {
             0%   { opacity:0.5; }
             50%  { opacity:1; }
@@ -253,6 +283,7 @@
 
         if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
             document.write('<script src="../../common/main/lib/util/fix-ie-compat.js"><\/script>');
+
     </script>
     <script src="../../common/main/lib/util/themeinit.js"></script>
 
@@ -264,7 +295,7 @@
     <script src="../../common/main/lib/util/htmlutils.js"></script>
     <div id="loading-mask" class="loadmask">
         <div class="brendpanel" style="display: none;">
-            <div><div class="loading-logo"><img src="../../common/main/resources/img/header/header-logo_s.svg"></div><div class="spacer"></div><div class="rect"></div></div><div><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span></div></div>
+            <div><div class="hy-back">返回</div><div class="loading-logo"><img src="../../common/main/resources/img/header/header-logo_s.svg"></div><div class="spacer"></div><div class="rect"></div></div><div><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span><span class="rect"></span></div></div>
         <div class="sktoolbar" style="display: none;">
             <ul><li></li><li class="space"></li><li style="width: 209px;"></li><li class="space"></li><li style="width: 187px;"></li><li class="space"></li><li style="width: 60px;"></li><li class="fat"></li></ul>
             <ul><li></li><li class="space"></li><li style="width: 209px;"></li><li class="space"></li><li style="width: 187px;"></li><li class="space"></li><li style="width: 60px;"></li></ul>
@@ -277,6 +308,16 @@
     <div id="viewport"></div>
 
     <script>
+        document.body.addEventListener('click', function(e) {
+            if (e.target && e.target.className === 'hy-back') {
+                var params = {
+                    type: 'plugin-event',
+                }
+                params['frameEditorId'] = window['frameEditorId']
+                params['eventType'] = 'goBack'
+                window['parent']['postMessage'](params, "*")
+            }
+        })
         var params = getUrlParams(),
             notoolbar = params["toolbar"] == 'false',
             compact = params["compact"] == 'true',
@@ -286,6 +327,16 @@
         if (params.hideLeft) {
             var ele = document.createElement("style");
             ele.innerHTML = '#left-menu { display: none; }';
+            document.getElementsByTagName('head')[0].appendChild(ele)
+        }
+        if (params.hideLogo) {
+            var ele = document.createElement("style");
+            ele.innerHTML = '.loading-logo { display: none; } .extra #header-logo { display: none }';
+            document.getElementsByTagName('head')[0].appendChild(ele)
+        }
+        if (params.showBack) {
+            var ele = document.createElement("style");
+            ele.innerHTML = '.hy-back { display: block; }';
             document.getElementsByTagName('head')[0].appendChild(ele)
         }
 

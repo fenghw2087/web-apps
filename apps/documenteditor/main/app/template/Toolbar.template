@@ -1,5 +1,6 @@
 <div class="toolbar">
     <div class="box-tabs">
+        <div class="hy-back">返回</div>
         <div class="extra left"></div>
         <%= tabsmarkup %>
         <div class="extra right"></div>
