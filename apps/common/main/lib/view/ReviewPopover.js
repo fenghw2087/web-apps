@@ -636,7 +636,7 @@ define([
 
         show: function (animate, loadText, focus, showText) {
             if (
-                this.commentsStore.models.every(function (v) {
+                this.commentsStore && this.commentsStore.models.every(function (v) {
                     return v.attributes.username === '__hy_ai'
                 })
             ) {
