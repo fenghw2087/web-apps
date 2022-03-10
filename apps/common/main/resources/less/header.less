@@ -73,15 +73,15 @@
     .btn-header {
         &:hover {
             &:not(.disabled):not(.icon) {
-                background-color: @highlight-header-button-hover-ie;
-                background-color: @highlight-header-button-hover;
+                // background-color: @highlight-header-button-hover-ie;
+                // background-color: @highlight-header-button-hover;
             }
         }
 
         &:active, &.active {
             &:not(.disabled):not(.icon) {
-                background-color: @highlight-header-button-pressed-ie;
-                background-color: @highlight-header-button-pressed;
+                // background-color: @highlight-header-button-pressed-ie;
+                // background-color: @highlight-header-button-pressed;
             }
         }
 
@@ -103,8 +103,9 @@
         min-width: 50px;
         text-align: center;
 
-        color: @text-toolbar-header-ie;
-        color: @text-toolbar-header;
+        // color: @text-toolbar-header-ie;
+        // color: @text-toolbar-header;
+        color: #333;
         background-color: transparent;
         border: 0 none;
         cursor: default;
@@ -177,8 +178,8 @@
         padding: 0;
 
         &.icon--inverse {
-            background-position-x: @button-header-normal-icon-offset-x-ie;
-            background-position-x: @button-header-normal-icon-offset-x;
+            // background-position-x: @button-header-normal-icon-offset-x-ie;
+            // background-position-x: @button-header-normal-icon-offset-x;
         }
     }
 
@@ -199,6 +200,7 @@
     height: 100%;
     width: 40px;
     padding: 0 10px;
+    display: none;
 
     .icon {
         width: 20px;
@@ -208,7 +210,7 @@
         padding: 0;
 
         &.icon--inverse {
-            background-position-x: -20px;
+            // background-position-x: -20px;
         }
     }
 
@@ -301,7 +303,7 @@
 
 .hedset {
     font-size: 0;
-    display: flex;
+    display: none;
 
     .btn-group {
         height: 100%;
@@ -321,8 +323,8 @@
         position: relative;
 
         &.icon--inverse {
-            background-position-x: @button-header-normal-icon-offset-x-ie;
-            background-position-x: @button-header-normal-icon-offset-x;
+            // background-position-x: @button-header-normal-icon-offset-x-ie;
+            // background-position-x: @button-header-normal-icon-offset-x;
         }
     }
 
@@ -334,7 +336,8 @@
         &:active, &.active {
             .icon.toolbar__icon {
                 &.icon--inverse {
-                    background-position-x: @button-header-active-icon-offset-x-ie;
+                    // background-position-x: @button-header-active-icon-offset-x-ie;
+                    background-position-x: 0;
                     opacity: @header-component-active-icon-opacity;
                 }
             }

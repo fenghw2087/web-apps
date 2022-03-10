@@ -37,7 +37,7 @@
         }
 
         .theme-light {
-            --background-toolbar: #f7f7f7;
+            --background-toolbar: #fff;
             /*--border-toolbar: #cbcbcb;*/
             --highlight-button-hover: #ccc;
             --highlight-header-button-hover: rgba(255,255,255,.15);
@@ -61,8 +61,8 @@
         .loadmask > .brendpanel {
             width: 100%;
             min-height: 28px;
-            background: #2f54eb;
-            background: var(--toolbar-header-document, #2f54eb);
+            background: #fff;
+            /* background: var(--toolbar-header-document, #2f54eb); */
         }
 
         .loadmask > .brendpanel > div {
@@ -99,8 +99,8 @@
         }
 
         .loadmask > .sktoolbar {
-            background: #f1f1f1;
-            background: var(--background-toolbar, #f1f1f1);
+            background: #fff;
+            /* background: var(--background-toolbar, #f1f1f1); */
             border-bottom: 1px solid #cbcbcb;
             border-bottom: var(--scaled-one-px-value, 1px) solid var(--border-toolbar, #cbcbcb);
             height: 46px;
@@ -171,8 +171,9 @@
             padding-top: 2px;
             line-height: 30px;
             position: relative;
-            background: var(--toolbar-header-document, #2f54eb);
-            color: #fff;
+            /* background: var(--toolbar-header-document, #2f54eb); */
+            background: #fff;
+            color: #333;
             font-size: 12px;
             padding-left: 10px;
             text-align: center;
@@ -180,7 +181,7 @@
             box-sizing: border-box;
         }
         .hy-back:hover {
-            background-color: #6677f0;
+            background-color: #f1f1f1;
         }
         .hy-back::before {
             content: "";
