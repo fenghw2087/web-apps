@@ -972,6 +972,14 @@
             params += '&sdkVersion=' + config.customConfig.sdkVersion
         }
 
+        if (config.customConfig && config.customConfig.subPath) {
+            params += '&sp=' + config.customConfig.subPath
+        }
+
+        if (config.customConfig && config.customConfig.uid) {
+            params += '&uid=' + config.customConfig.uid
+        }
+
         return params;
     }
 

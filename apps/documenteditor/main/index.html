@@ -345,6 +345,14 @@
             window['__hy_ai_sdkVersion'] = params.sdkVersion
         }
 
+        if (params.sp) {
+            window['__hy_ai_subPath'] = params.sp
+        }
+
+        if (params.uid) {
+            window['__hy_ai_uid'] = params.uid
+        }
+
         (compact || view || notoolbar) && document.querySelector('.brendpanel > :nth-child(2)').remove();
 
         if (compact || view) {

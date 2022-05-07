@@ -1,4 +1,5 @@
-
+window.localStorage.removeItem('ui-theme-id')
+window.localStorage.removeItem('ui-theme')
 function checkScaling() {
     var matches = {
         'pixel-ratio__1_25': "screen and (-webkit-min-device-pixel-ratio: 1.25) and (-webkit-max-device-pixel-ratio: 1.49), " +

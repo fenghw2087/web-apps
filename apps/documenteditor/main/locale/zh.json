@@ -548,7 +548,7 @@
   "DE.Controllers.Main.errorToken": "文档安全令牌未正确形成。<br>请与您的文件服务器管理员联系。",
   "DE.Controllers.Main.errorTokenExpire": "文档安全令牌已过期。<br>请与您的文档服务器管理员联系。",
   "DE.Controllers.Main.errorUpdateVersion": "该文件版本已经改变了。该页面将被重新加载。",
-  "DE.Controllers.Main.errorUpdateVersionOnDisconnect": "网连接已还原文件版本已更改。.<br>在继续工作之前，需要下载文件或复制其内容以确保没有丢失任何内容，然后重新加载此页。",
+  "DE.Controllers.Main.errorUpdateVersionOnDisconnect": "网络连接已恢复，文件版本已更改。.<br>在继续工作之前，请重新刷新此页。",
   "DE.Controllers.Main.errorUserDrop": "该文件现在无法访问。",
   "DE.Controllers.Main.errorUsersExceed": "超过了定价计划允许的用户数",
   "DE.Controllers.Main.errorViewerDisconnect": "连接丢失了。您仍然可以查看文档，<br>但在连接恢复并页面被重新加载之前无法下载或打印。",
