@@ -783,7 +783,7 @@ define([
                         } else {
                             if (
                                 this.popoverComments.models.every(function (v) {
-                                    return v.attributes.username === '__hy_ai'
+                                    return v.attributes.username && v.attributes.username.indexOf('__hy_ai') > -1
                                 })
                             ) {
                                 if (this.getPopover()) {

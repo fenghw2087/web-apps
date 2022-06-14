@@ -637,7 +637,7 @@ define([
         show: function (animate, loadText, focus, showText) {
             if (
                 this.commentsStore && this.commentsStore.models.every(function (v) {
-                    return v.attributes.username === '__hy_ai'
+                    return v.attributes.username && v.attributes.username.indexOf('__hy_ai') > -1
                 })
             ) {
                 return false

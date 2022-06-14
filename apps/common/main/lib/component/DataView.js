@@ -528,7 +528,7 @@ define([
 
             var me = this;
             this.store.each(function(item){
-                if (item.attributes.username === '__hy_ai') return
+                if (item.attributes.username && item.attributes.username.indexOf('__hy_ai') > -1) return
                 me.onAddItem(item, me.store);
             }, this);
 
