@@ -842,6 +842,14 @@
         for (var i = scripts.length - 1; i >= 0; i--) {
             match = scripts[i].src.match(/(.*)api\/documents\/api.js/i);
             if (match) {
+                // 自定义distPath
+                var searchStr = scripts[i].src.split('?')[1];
+                var sp = new window.URLSearchParams(searchStr);
+                var distPath = sp.get('distPath');
+                if (distPath) {
+                    window['__hy_distPath'] = decodeURIComponent(distPath);
+                    return window['__hy_distPath'] + '/web-apps/apps/';
+                }
                 return match[1];
             }
         }

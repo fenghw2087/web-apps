@@ -65,6 +65,15 @@ define([
             listItemHeight  = 28,
             spriteCols     = 1,
             applicationPixelRatio = Common.Utils.applicationPixelRatio();
+        if (window['__hy_ai_subPath']) {
+            thumbs       = [
+                {ratio: 1,      path: 'https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/Images/fonts_thumbnail' + postfix + '.png', width: iconWidth, height: iconHeight},
+                {ratio: 1.25,   path: 'https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/Images/fonts_thumbnail' + postfix + '@1.25x.png', width: iconWidth * 1.25, height: iconHeight * 1.25},
+                {ratio: 1.5,    path: 'https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/Images/fonts_thumbnail' + postfix + '@1.5x.png', width: iconWidth * 1.5, height: iconHeight * 1.5},
+                {ratio: 1.75,   path: 'https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/Images/fonts_thumbnail' + postfix + '@1.75x.png', width: iconWidth * 1.75, height: iconHeight * 1.75},
+                {ratio: 2,      path: 'https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/Images/fonts_thumbnail' + postfix + '@2x.png', width: iconWidth * 2, height: iconHeight * 2}
+            ]
+        }
 
         if (typeof window['AscDesktopEditor'] === 'object') {
             thumbs[0].path     = window['AscDesktopEditor'].getFontsSprite('');

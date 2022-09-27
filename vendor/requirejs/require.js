@@ -1883,7 +1883,11 @@ var requirejs, require, define;
                 node.addEventListener('error', context.onScriptError, false);
             }
             node.src = url;
-            var sdkVersion = window['__hy_ai_sdkVersion']
+            // 对allfonts.js进行特殊处理
+            if (url.indexOf('AllFonts.js') > -1 && window['__hy_ai_subPath']) {
+                node.src = 'https://hetong.ai.163.com/'+ window['__hy_ai_subPath'] +'/sdkjs/common/AllFonts.js';
+            }
+            var sdkVersion = window['__hy_ai_sdkVersion'];
             if (sdkVersion) {
                 node.src += '?v=' + sdkVersion;
             }
