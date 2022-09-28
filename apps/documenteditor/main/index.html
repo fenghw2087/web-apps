@@ -419,7 +419,12 @@
     <script type="text/javascript" src="../../../../sdkjs/develop/sdkjs/word/scripts.js"></script>
     <script>
         window.sdk_scripts.forEach(function(item){
-            document.write('<script type="text/javascript" src="' + item + '"><\/script>');
+            // 处理开发环境allfonts.js的路径
+            if (item.indexOf('AllFonts.js') > -1) {
+                document.write('<script type="text/javascript" src="https://hetong.ai.163.com/' + window['__hy_ai_subPath'] + '/sdkjs/common/AllFonts.js"><\/script>');
+            } else {
+                document.write('<script type="text/javascript" src="' + item + '"><\/script>');
+            }
         });
 
         window.requireTimeourError = function(){
